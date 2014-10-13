@@ -18,6 +18,22 @@ TEST(BoundaryValueTest, Normal)
     EXPECT_STREQ("Not a triangle", checkTriangleType(200, 100, 100));
 }
 
+TEST(BoundaryValueTest, Robust)
+{
+    EXPECT_STREQ("Invalid input", checkTriangleType(0, 100, 100));
+    EXPECT_STREQ("Invalid input", checkTriangleType(-1, 100, 100));
+    EXPECT_STREQ("Invalid input", checkTriangleType(201, 100, 100));
+    EXPECT_STREQ("Invalid input", checkTriangleType(202, 100, 100));
+    EXPECT_STREQ("Invalid input", checkTriangleType(100, 0, 100));
+    EXPECT_STREQ("Invalid input", checkTriangleType(100, -1, 100));
+    EXPECT_STREQ("Invalid input", checkTriangleType(100, 201, 100));
+    EXPECT_STREQ("Invalid input", checkTriangleType(100, 202, 100));
+    EXPECT_STREQ("Invalid input", checkTriangleType(100, 100, 0));
+    EXPECT_STREQ("Invalid input", checkTriangleType(100, 100, -1));
+    EXPECT_STREQ("Invalid input", checkTriangleType(100, 100, 201));
+    EXPECT_STREQ("Invalid input", checkTriangleType(100, 100, 202));
+}
+
 int main(int argc, char **argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
