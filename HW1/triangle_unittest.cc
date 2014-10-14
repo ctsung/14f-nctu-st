@@ -34,6 +34,24 @@ TEST(BoundaryValueTest, Robust)
     EXPECT_STREQ("Invalid input", checkTriangleType(100, 100, 202));
 }
 
+TEST(EquivalenceClassTest, WeakNormal)
+{
+    EXPECT_STREQ("Equilateral", checkTriangleType(5, 5, 5));
+    EXPECT_STREQ("Isosceles", checkTriangleType(2, 2, 3));
+    EXPECT_STREQ("Scalene", checkTriangleType(3, 4, 5));
+    EXPECT_STREQ("Not a triangle", checkTriangleType(4, 1, 2));
+}
+
+TEST(EquivalenceClassTest, WeakRobust)
+{
+    EXPECT_STREQ("Invalid input", checkTriangleType(-1, 5, 5));
+    EXPECT_STREQ("Invalid input", checkTriangleType(5, -1, 5));
+    EXPECT_STREQ("Invalid input", checkTriangleType(5, 5, -1));
+    EXPECT_STREQ("Invalid input", checkTriangleType(201, 5, 5));
+    EXPECT_STREQ("Invalid input", checkTriangleType(5, 201, 5));
+    EXPECT_STREQ("Invalid input", checkTriangleType(5, 5, 201));
+}
+
 int main(int argc, char **argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
