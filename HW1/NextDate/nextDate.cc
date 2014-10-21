@@ -68,9 +68,7 @@ string handle30Days(int month, int day, int year) {
 string handle31Days(int month, int day, int year) {
     std::stringstream converter;
 
-    if (day > 31) {
-        converter << "Impossible date";
-    } else if (31 == day) {
+    if (31 == day) {
         converter << month + 1 << "/1/" << year;
     } else {
         converter << month << '/' << day + 1 << '/' << year;
