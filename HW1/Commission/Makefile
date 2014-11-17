@@ -17,7 +17,7 @@
 GTEST_DIR = ../../googletest
 
 # Where to find user code.
-USER_DIR = .
+USER_DIR = ../../src/Commission
 
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
@@ -74,9 +74,9 @@ gtest_main.a : gtest-all.o gtest_main.o
 commission.o : $(USER_DIR)/commission.cc $(USER_DIR)/commission.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/commission.cc
 
-commission_unittest.o : $(USER_DIR)/commission_unittest.cc \
+commission_unittest.o : commission_unittest.cc \
                      $(USER_DIR)/commission.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/commission_unittest.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c commission_unittest.cc
 
 commission_unittest : commission.o commission_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@

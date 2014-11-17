@@ -1,4 +1,4 @@
-#include "triangle.h"
+#include "../../src/Triangle/triangle.h"
 #include "gtest/gtest.h"
 
 TEST(BoundaryValueTest, Normal)

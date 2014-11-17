@@ -1,4 +1,4 @@
-#include "commission.h"
+#include "../../src/Commission/commission.h"
 #include "gtest/gtest.h"
 
 TEST(BoundaryValueTest, Normal)
