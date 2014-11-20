@@ -17,13 +17,13 @@ string handleFeb(int day, int year) {
     if (day > 29) {
         converter << "Impossible date";
     } else if (29 == day) {
-        if (isLeapYear) {
+        if (isLeapYear(year) ) {
             converter << "3/1/" << year;
         } else {
             converter << "Impossible date";
         }
     } else if (28 == day) {
-        if (isLeapYear) {
+        if (isLeapYear(year) ) {
             converter << "2/29/" << year;
         } else {
             converter << "3/1/" << year;
@@ -86,7 +86,7 @@ string nextDate(int month, int day, int year) {
         next_date = handleFeb(day, year);
     } else if (12 == month) {
         next_date = handleDec(day, year);
-    } else if ((4 == month) || (6 == month) || (9 == month) || (11 == month)) {
+    } else if ((3 == month) || (4 == month) || (6 == month) || (9 == month) || (11 == month)) {
         next_date = handle30Days(month, day, year);
     } else {
         next_date = handle31Days(month, day, year);
